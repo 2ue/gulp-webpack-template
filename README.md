@@ -30,3 +30,11 @@ npm install --save-dev mockjs
 //或者执行npm install
 npm install
 ```
+
+#### 编译：
+
+``` shell
+//执行gulp
+gulp
+//或者npm start
+```
