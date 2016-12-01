@@ -2,7 +2,7 @@
 * @Author: eryue
 * @Date: 2016-11-10 16:15:31
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-12-01 14:26:06
+* @Last Modified time: 2016-12-01 16:39:43
 * @Function:
 * @Description: npm isntall --save-dev gulp gulp-less gulp-notify gulp-plumber gulp-watch gulp-util webpack
 */
@@ -47,10 +47,10 @@ gulp.task('less', function() {
 });
 
 //引用webpack对js进行操作
-gulp.task("buildJs", function(callback) {
+gulp.task("webpackBuild", function(callback) {
     devCompiler.run(function(err, stats) {
-        if(err) throw new gutil.PluginError("[webpack:buildJs]", err);
-        gutil.log("[webpack:buildJs]", stats.toString({
+        if(err) throw new gutil.PluginError("[webpack:build]", err);
+        gutil.log("[webpack:build]", stats.toString({
             colors: true
         }));
         callback();
@@ -61,10 +61,13 @@ gulp.task('toWatch', function() {
     gulp.watch('src/less/*.less', ['less'], function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
-    gulp.watch('src/js/*/*.js', ['buildJs'], function(event) {
+    gulp.watch('src/js/*/*.js', ['webpackBuild'], function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+    gulp.watch('views/*.html', ['webpackBuild'], function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
 
 // 执行gulp
-gulp.task('default', ['less','buildJs','toWatch']);
+gulp.task('default', ['less','webpackBuild','toWatch']);
