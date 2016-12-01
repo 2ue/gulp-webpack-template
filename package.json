@@ -2,7 +2,7 @@
   "name": "gulp-webpack-template",
   "author": "2ue",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个简易的gulp-webpack项目模板",
   "main": "gulpfile.js",
   "dependencies": {
     "jquery": "^3.1.1",
