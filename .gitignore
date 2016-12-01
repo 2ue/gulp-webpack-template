@@ -8,3 +8,4 @@ node_modules/
 .project
 webpack.config.bak.js
 gulpfile.bak.js
+dist/
