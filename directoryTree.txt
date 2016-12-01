@@ -1,0 +1,25 @@
+.
+├── ./dist
+│   ├── ./dist
+│   ├── ./dist/css
+│   ├── ./dist/images
+│   └── ./dist/js
+├── ./src
+│   ├── ./src/css
+│   │   └── ./src/css/public.css
+│   ├── ./src/images
+│   ├── ./src/less
+│   │   └── ./src/less/app.less  //less文件编译入口
+│   │   └── ./src/less/page.less
+│   └── ./src/js
+│       ├── ./src/js/common
+│       │   ├── ./src/js/common/jquery-3.0.0.min.js
+│       ├── ./src/js/gen
+│       │   └── ./src/js/gen/userList.js //生成列表的随机数据
+│       └── ./src/js/page
+│           └── ./src/js/page/app.js
+├── ./views
+│   └── ./views/app.html
+├── ./webpack.config.js
+├── ./gulpfile.js
+└── ./package.json

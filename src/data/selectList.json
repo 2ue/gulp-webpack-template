@@ -1,0 +1,84 @@
+{
+    "selectList": [
+        {
+            "id": 1,
+            "value": "George Brown",
+            "text": "孙强"
+        },
+        {
+            "id": 2,
+            "value": "Maria Clark",
+            "text": "郝敏"
+        },
+        {
+            "id": 3,
+            "value": "John Brown",
+            "text": "薛芳"
+        },
+        {
+            "id": 4,
+            "value": "Betty Garcia",
+            "text": "曾秀英"
+        },
+        {
+            "id": 5,
+            "value": "Nancy Hall",
+            "text": "康杰"
+        },
+        {
+            "id": 6,
+            "value": "Betty Robinson",
+            "text": "阎平"
+        },
+        {
+            "id": 7,
+            "value": "Kevin Martin",
+            "text": "袁丽"
+        },
+        {
+            "id": 8,
+            "value": "Michelle Robinson",
+            "text": "谢明"
+        },
+        {
+            "id": 9,
+            "value": "Brenda Garcia",
+            "text": "邱敏"
+        },
+        {
+            "id": 10,
+            "value": "Shirley Miller",
+            "text": "董艳"
+        },
+        {
+            "id": 11,
+            "value": "Helen Young",
+            "text": "雷明"
+        },
+        {
+            "id": 12,
+            "value": "Larry Lewis",
+            "text": "苏艳"
+        },
+        {
+            "id": 13,
+            "value": "Mary Johnson",
+            "text": "汤杰"
+        },
+        {
+            "id": 14,
+            "value": "Brian Garcia",
+            "text": "康涛"
+        },
+        {
+            "id": 15,
+            "value": "Donald Jones",
+            "text": "邓丽"
+        },
+        {
+            "id": 16,
+            "value": "Kevin Lopez",
+            "text": "张艳"
+        }
+    ]
+}

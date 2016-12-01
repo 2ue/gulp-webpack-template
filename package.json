@@ -1,0 +1,27 @@
+{
+  "name": "vuejs",
+  "author": "2ue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "less": "^2.7.1",
+    "gulp-less": "^3.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-watch": "^4.3.10",
+    "mockjs": "^1.0.1-beta3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "jsx-loader": "^0.13.2",
+    "webpack": "^1.13.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "license": "ISC"
+}

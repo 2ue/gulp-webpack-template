@@ -1,0 +1,10 @@
+.bak
+.DS_Store
+Thumbs.db
+db.json
+.log
+node_modules/
+.idea
+.project
+webpack.config.bak.js
+gulpfile.bak.js
