@@ -1,8 +1,11 @@
-/**
- * Created by eryue
- * Create in 2016-11-23 14:19
- * Description: npm isntall --save-dev gulp gulp-less gulp-notify gulp-plumber gulp-watch gulp-util webpack
- */
+/*
+* @Author: eryue
+* @Date: 2016-11-10 16:15:31
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-12-01 10:35:57
+* @Function:
+* @Description: npm isntall --save-dev gulp gulp-less gulp-notify gulp-plumber gulp-watch gulp-util webpack
+*/
 
 'use strict';
 
