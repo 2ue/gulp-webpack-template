@@ -1,5 +1,5 @@
 ## gulp-webpack-template
-> 学习`gulp + webpack`打包项目，用`webpack`处理`javascript`文件打包问题，其余问题交由`gulp`处理。目前功能较少需要不断改进和完善。
+> 学习`gulp + webpack`打包，用`webpack`处理`javascript`文件打包问题，其余问题交由`gulp`处理。目前功能较少需要不断改进和完善。
 
 
 #### 预想完成功能：
@@ -17,23 +17,76 @@
 #### 更新记录
 
 - 2016年12月1日16:05:51
-  - 修改入口文件遍历方式：由HTML文件来遍历对应的同名JS文件（以前是遍历所有的js文件）
+  - 修改入口文件遍历方式：由`HTML`文件来遍历对应的同名JS文件（以前是遍历所有的js文件）
   - 自动添加`javascript`文件到同名HTML文件
 
 
 - 2016年12月1日10:11:02
-  - less编译任务 -- gulp
-  - javascript编译任务 -- webpack -->gulp
-  - 监听任务，自动编译  -- gulp
+  - `less`编译任务 -- `gulp`
+  - `javascript`编译任务 -- `webpack` --> `gulp`
+  - 监听任务，自动编译  -- `gulp`
+  - 支持多文件打包
+
+#### 目录结构
+
+``` she
+├── ./dist
+│   ├── ./dist
+│   ├── ./dist/css
+│   ├── ./dist/images
+│   └── ./dist/js
+├── ./src
+│   ├── ./src/css
+│   │   └── ./src/css/public.css
+│   ├── ./src/images
+│   │   └── ....
+│   ├── ./src/less
+│   │   └── ./src/less/app.less  //less文件编译入口
+│   │   └── ./src/less/page.less
+│   └── ./src/js
+│       ├── ./src/js/common //一些不支持require方式的类库
+│       │   ├── ./src/js/common/...js
+│       ├── .......
+│       │   .......
+│       └── ./src/js/page //和views中的同名HTML文件一一对应
+│           └── ./src/js/page/app.js
+│           └── ./src/js/page/aboutUs.js
+├── ./views
+│   └── ./views/app.html
+│   └── ./views/aboutUs.html
+├── ./webpack.config.js
+├── ./gulpfile.js
+└── ./package.json
+```
+
+#### 编译后生成dist目录
+
+``` shell
+├── ./dist
+│   ├── ./src/css
+│   │   └── ./src/css/page.css
+│   ├── ./src/images
+│   │   └── ....
+│   └── ./src/js
+│       ├── ./src/js/common //打包的公共模块
+│       │   ├── ./src/js/common/common.js
+│       ├── .......
+│       │   .......
+│       └── ./src/js/page //和views中的同名HTML文件一一对应
+│           └── ./src/js/page/app.js
+│           └── ./src/js/page/aboutUs.js
+├── ./views
+│   └── ./views/app.html
+│   └── ./views/aboutUs.html
+├──
+```
 
 #### 安装依赖：
 
 ``` shell
 //gulp webpack任务依赖
 npm isntall --save-dev gulp gulp-less gulp-notify gulp-plumber gulp-watch gulp-util webpack
-//其他依赖，用于数据生成
-npm install --save-dev mockjs
-//或者执行npm install
+//或者执行npm install，依赖于package.json文件
 npm install
 ```
 
@@ -43,5 +96,5 @@ npm install
 //执行
 gulp
 //或者
-npm start
+npm run dev
 ```
