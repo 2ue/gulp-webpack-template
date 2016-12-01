@@ -2,7 +2,7 @@
 * @Author: eryue
 * @Date: 2016-11-10 16:11:59
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-11-30 10:27:03
+* @Last Modified time: 2016-12-01 10:32:55
 * @Function:
 * @Describtion:
 */
@@ -28,16 +28,4 @@ $.ajax({
 })
 .always(function() {
     console.log("complete");
-});
-$('body').on('click', '.more', function(event) {
-    var _this = $(this);
-    var isShow = _this.hasClass('isShow');
-    if(isShow){
-        _this.removeClass('isShow').html('展开更多');
-        $('.textVal').addClass('text-one');
-    }else {
-        _this.addClass('isShow').html('收起');
-        $('.textVal').removeClass('text-one');
-    }
-
 });

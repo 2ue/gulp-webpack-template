@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     webpack = require('webpack'),
     gutil = require('gulp-util'),
     webpackConfig = require("./webpack.config.js");
+
 var myDevConfig = Object.create(webpackConfig);
 var devCompiler = webpack(myDevConfig);
 
@@ -26,13 +27,12 @@ var isDev = true;//true调试环境 | false线上环境
 var resultPath = isDev ? 'src/' : 'dist/';
 
 gulp.task('less', function() {
-    var time = new Date();
     RecordNum++;
-    console.log('[less: ' + RecordNum + '] 次编译开始,' + resultPath + 'less/app.less...');
+    console.log('[less: ' + RecordNum + '] 次编译开始,' + resultPath + 'src/less/app.less...');
     gulp.src('src/less/app.less')
         .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
         .pipe(less())
-        .pipe(gulp.dest(resultPath + 'css'));
+        .pipe(gulp.dest('dist/css'));
 });
 
 //引用webpack对js进行操作
