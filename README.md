@@ -34,7 +34,8 @@ npm install
 #### 编译：
 
 ``` shell
-//执行gulp
+//执行
 gulp
-//或者npm start
+//或者
+npm start
 ```
