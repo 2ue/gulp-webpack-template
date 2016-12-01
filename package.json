@@ -15,7 +15,9 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-util": "^3.0.7",
+    "html-webpack-plugin": "^2.24.1",
     "jsx-loader": "^0.13.2",
     "webpack": "^1.13.3"
   },

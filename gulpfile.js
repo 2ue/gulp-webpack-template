@@ -2,7 +2,7 @@
 * @Author: eryue
 * @Date: 2016-11-10 16:15:31
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-12-01 10:35:57
+* @Last Modified time: 2016-12-01 14:26:06
 * @Function:
 * @Description: npm isntall --save-dev gulp gulp-less gulp-notify gulp-plumber gulp-watch gulp-util webpack
 */
@@ -20,6 +20,7 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     webpack = require('webpack'),
     gutil = require('gulp-util'),
+    clean = require('gulp-clean'),
     webpackConfig = require("./webpack.config.js");
 
 var myDevConfig = Object.create(webpackConfig);
@@ -28,6 +29,13 @@ var devCompiler = webpack(myDevConfig);
 var RecordNum = 0;
 var isDev = true;//true调试环境 | false线上环境
 var resultPath = isDev ? 'src/' : 'dist/';
+
+gulp.task('clean', function (done) {
+    // console.log(gulp.src([pathSrc]))
+    gulp.src('dist/')
+        .pipe(clean())
+        .on('end', done);
+});
 
 gulp.task('less', function() {
     RecordNum++;
