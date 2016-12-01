@@ -1,5 +1,7 @@
 ## gulp-webpack-template
 > 学习gulp + webpack打包项目，用webpack处理javascript文件打包问题，其余问题交由gulp处理。目前功能较少需要不断改进和完善。
+
+
 #### 预想完成功能：
 
 - 资源打包任务
