@@ -27,4 +27,6 @@
 npm isntall --save-dev gulp gulp-less gulp-notify gulp-plumber gulp-watch gulp-util webpack
 //其他依赖，用于数据生成
 npm install --save-dev mockjs
+//或者执行npm install
+npm install
 ```
