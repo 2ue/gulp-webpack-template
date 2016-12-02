@@ -2,14 +2,14 @@
 * @Author: eryue
 * @Date: 2016-11-10 16:15:31
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-12-01 15:58:30
+* @Last Modified time: 2016-12-02 10:58:03
 * @Function:
 * @Description:
 */
 
 'use strict';
 
-var path = require('path'),
+let path = require('path'),
     fs = require('fs'),
     webpack = require('webpack'),
     uglifyJsPlugin = webpack.optimize.UglifyJsPlugin,
@@ -18,34 +18,51 @@ var path = require('path'),
 
 
 //获取多页面的每个入口文件，用于配置中的entry
-var fileObj = function () {
-    var srcDir = path.resolve(process.cwd(), 'src'); //css/js/images等资源入口
-    var htmlPath = path.resolve(process.cwd(), 'views'); //html资源入口
-    var dirs = fs.readdirSync(htmlPath);
-    var fileObj = {
+const fileObj = (() => {
+    const srcDir = path.resolve(process.cwd(), 'src'); //css/js/images等资源入口
+    const htmlPath = path.resolve(srcDir, 'views'); //html资源入口
+    const dirs = fs.readdirSync(htmlPath);
+    const fileObj = {
         entryFiles: {}, //入口文件
         htmlAppendJsObj: [] //自动添加js到html配置集合
     };
-    var ignoreFile = ['test']; //不进行打包的html
+    const ignoreFile = ['test']; //不进行打包的html
 
-    dirs.forEach(function (item) {
-            var matchFile = item.match(/(.+)\.html$/);
-            if (matchFile && ignoreFile.indexOf(matchFile[1]) == -1) {
-                var chunkFileName = 'page/' + matchFile[1];
-                fileObj.entryFiles[chunkFileName] = path.resolve(srcDir, 'js/' + chunkFileName + '.js');
-                fileObj.htmlAppendJsObj.push(
-                    new HtmlWebpackPlugin({
-                      filename: '../views/' + item,
-                      template: 'views/' + item,
-                      chunks: ['common/common.js',chunkFileName],
-                      inject: 'body'
-                    })
-                );
-            }
+    // dirs.forEach(function (item) {
+    //         const matchFile = item.match(/(.+)\.html$/);
+    //         if (matchFile && ignoreFile.indexOf(matchFile[1]) == -1) {
+    //             const chunkFileName = 'page/' + matchFile[1];
+    //             fileObj.entryFiles[chunkFileName] = path.resolve(srcDir, 'js/' + chunkFileName + '.js');
+    //             fileObj.htmlAppendJsObj.push(
+    //                 new HtmlWebpackPlugin({
+    //                   filename: '../views/' + item,
+    //                   template: 'views/' + item,
+    //                   chunks: ['common/common.js',chunkFileName],
+    //                   inject: 'body'
+    //                 })
+    //             );
+    //         }
 
-    });
+    // });
+    dirs.map((item, index) => {
+        const matchFile = item.match(/(.+)\.html$/);
+        const isIgnore = ignoreFile.indexOf(matchFile[1]) == -1;
+
+        if(!matchFile || !isIgnore) return;
+
+        const chunkFileName = 'page/' + matchFile[1];
+        fileObj.entryFiles[chunkFileName] = path.resolve(srcDir, 'js/' + chunkFileName + '.js');
+        fileObj.htmlAppendJsObj.push(
+            new HtmlWebpackPlugin({
+              filename: '../views/' + item,
+              template: 'src/views/' + item,
+              chunks: ['common/common.js',chunkFileName],
+              inject: 'body'
+            })
+        );
+    })
     return fileObj;
-}();
+})();
 
 module.exports = {
 

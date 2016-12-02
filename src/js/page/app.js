@@ -2,16 +2,16 @@
 * @Author: eryue
 * @Date: 2016-11-10 16:11:59
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-12-01 10:32:55
+* @Last Modified time: 2016-12-02 10:54:24
 * @Function:
 * @Describtion:
 */
 
 'use strict';
 require('../common/jquery-2.0.3.min');
-var mutilSelect = require('../util/mutilSelected');
+const mutilSelect = require('../util/mutilSelected');
 $.ajax({
-    url: '../src/data/selectList.json'
+    url: '../data/selectList.json'
 })
 .done(function(data) {
     console.log(data);
