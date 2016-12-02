@@ -2,7 +2,7 @@
 * @Author: eryue
 * @Date: 2016-11-10 16:15:31
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-12-02 10:58:03
+* @Last Modified time: 2016-12-02 11:41:58
 * @Function:
 * @Description:
 */
@@ -15,42 +15,26 @@ let path = require('path'),
     uglifyJsPlugin = webpack.optimize.UglifyJsPlugin,
     CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin"),
     HtmlWebpackPlugin = require('html-webpack-plugin');
+    // fileObj = require('./build/entryfile.js')(HtmlWebpackPlugin);
 
 
 //获取多页面的每个入口文件，用于配置中的entry
 const fileObj = (() => {
-    const srcDir = path.resolve(process.cwd(), 'src'); //css/js/images等资源入口
-    const htmlPath = path.resolve(srcDir, 'views'); //html资源入口
-    const dirs = fs.readdirSync(htmlPath);
-    const fileObj = {
-        entryFiles: {}, //入口文件
-        htmlAppendJsObj: [] //自动添加js到html配置集合
-    };
-    const ignoreFile = ['test']; //不进行打包的html
+    const srcDir = path.resolve(process.cwd(), 'src'), //css/js/images等资源入口
+        htmlPath = path.resolve(srcDir, 'views'), //html资源入口
+        dirs = fs.readdirSync(htmlPath),
+        ignoreFile = ['test'], //不进行打包的html
+        fileObj = {
+            entryFiles: {}, //入口文件
+            htmlAppendJsObj: [] //自动添加js到html配置集合
+        };
 
-    // dirs.forEach(function (item) {
-    //         const matchFile = item.match(/(.+)\.html$/);
-    //         if (matchFile && ignoreFile.indexOf(matchFile[1]) == -1) {
-    //             const chunkFileName = 'page/' + matchFile[1];
-    //             fileObj.entryFiles[chunkFileName] = path.resolve(srcDir, 'js/' + chunkFileName + '.js');
-    //             fileObj.htmlAppendJsObj.push(
-    //                 new HtmlWebpackPlugin({
-    //                   filename: '../views/' + item,
-    //                   template: 'views/' + item,
-    //                   chunks: ['common/common.js',chunkFileName],
-    //                   inject: 'body'
-    //                 })
-    //             );
-    //         }
-
-    // });
     dirs.map((item, index) => {
-        const matchFile = item.match(/(.+)\.html$/);
-        const isIgnore = ignoreFile.indexOf(matchFile[1]) == -1;
+        const matchFile = item.match(/(.+)\.html$/),
+            isIgnore = ignoreFile.indexOf(matchFile[1]) == -1,
+            chunkFileName = 'page/' + matchFile[1];
 
         if(!matchFile || !isIgnore) return;
-
-        const chunkFileName = 'page/' + matchFile[1];
         fileObj.entryFiles[chunkFileName] = path.resolve(srcDir, 'js/' + chunkFileName + '.js');
         fileObj.htmlAppendJsObj.push(
             new HtmlWebpackPlugin({
@@ -80,7 +64,7 @@ module.exports = {
     //插件项
      plugins: [
         new CommonsChunkPlugin('common/common.js'),
-        //压缩
+        //js开启压缩
         // new uglifyJsPlugin({
         //     compress: {
         //         warnings: false
