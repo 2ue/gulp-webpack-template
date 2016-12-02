@@ -2,7 +2,7 @@
 * @Author: eryue
 * @Date: 2016-11-10 16:15:31
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-12-02 11:41:58
+* @Last Modified time: 2016-12-02 16:59:06
 * @Function:
 * @Description:
 */
@@ -82,8 +82,10 @@ module.exports = {
     },
     //其它解决方案配置
     resolve: {
-        extensions: ['', '.js', '.json', '.scss'],
+        extensions: ['', '.js', '.json', '.scss', '.vue'],
         // alias: {
+            //映射vue，不然require vue后会报错 参考https://segmentfault.com/q/1010000007071229
+            'vue$': 'vue/dist/vue.js'
         //     jquery: srcDir + "/js/common/jquery-1.9.1.mim.js",
         //     core: srcDir + "/js/core",
         //     ui: srcDir + "/js/ui"
