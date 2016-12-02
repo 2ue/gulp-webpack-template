@@ -50,7 +50,7 @@ obj = {
 
 `false`与`'head'`等价，表示把js文件插入到HTML文件头部
 
-#### favicon（string  | 必填 | 默认为空）
+#### favicon（string  | 非必填 | 默认为空）
 
 顾名思义，不多说
 
@@ -58,7 +58,7 @@ obj = {
 
 传递` html-minifier`选项给`minify`输出，false就是不压缩
 
-#### chunks（arry | 必填 | 默认为‘all'）
+#### chunks（arry | 非必填 | 默认为‘all'）
 
 需要添加的JS模块需和入口文件配置的key保持一致
 
