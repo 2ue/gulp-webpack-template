@@ -8,7 +8,7 @@
   - images：雪碧图，拷贝，生成dataurl等  ----  (待实现)
   - css(less/sass/stylus/css .etc)：编译预处理器，压缩，自动前缀，雪碧图，MD5等 
   - javascript：打包，压缩，MD5 
-  - html：主要是include方法 ----  (待实现)
+  - html：主要是include方法，使用gulp-file-include---  (待实现，[参考](https://github.com/fwon/gulp-webpack-demo/blob/master/gulpfile.js))
   - 自动添加`javascript`文件到`HTML`文件 (2016年12月1日16:05:40) 
 - 监听变化，自动编译 
 - 热刷新 ---- (待实现)
